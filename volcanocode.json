@@ -1,0 +1,26 @@
+{   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 600,
+    "height": 400,
+    "title": "Subduction Zone: Alaska",
+    "projection": {"type": "equalEarth", "scale": 700, "center": [-160, 55]},
+    "layer": 
+    [
+        {"data": 
+        {"url": "https://raw.githubusercontent.com/KaneSec/vega_lite/main/2_symbol_map/js/ne_110m_admin_0_countries.topojson",
+            "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}},
+            "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
+        },
+
+        {"data": 
+            {"url": "https://raw.githubusercontent.com/githubuser0099/DataRepo/main/Volcanos.csv"},
+            "mark": {"type": "point", "filled": true},
+            "encoding":
+                {
+                    "longitude": {"field": "longitude", "type": "quantitative"},
+                    "latitude": {"field": "latitude", "type": "quantitative"},
+                    "size": {"value": 20}
+                }
+        }
+
+    ]
+}
